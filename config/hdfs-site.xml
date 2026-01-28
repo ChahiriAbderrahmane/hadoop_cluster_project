@@ -1,0 +1,18 @@
+<configuration>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>file:///root/hdfs/namenode</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///root/hdfs/datanode</value>
+    </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>3</value>
+    </property>
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>hadoop-secondary:9868</value>
+    </property>
+</configuration>

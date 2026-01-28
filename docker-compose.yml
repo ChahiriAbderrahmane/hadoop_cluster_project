@@ -1,0 +1,49 @@
+# Configuration commune pour ne pas répéter le code
+x-hadoop-common: &hadoop-common
+  build: .
+  # On limite la mémoire Java à 800Mo pour laisser 200Mo au système (Total 1Go)
+  environment:
+    - HADOOP_HOME=/usr/local/hadoop
+    - HADOOP_HEAPSIZE_MAX=800m
+  # C'est ici qu'on définit les limites physiques
+  deploy:
+    resources:
+      limits:
+        cpus: '1.0'      # Max 1 coeur CPU par conteneur
+        memory: 1G       # Max 1 Go de RAM par conteneur
+      reservations:
+        memory: 512M     # Réserve garantie au démarrage
+
+services:
+  hadoop-master:
+    <<: *hadoop-common
+    container_name: hadoop-master
+    hostname: hadoop-master
+    ports:
+      - "9870:9870" # HDFS UI
+      - "8088:8088" # YARN UI
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+
+  hadoop-secondary:
+    <<: *hadoop-common
+    container_name: hadoop-secondary
+    hostname: hadoop-secondary
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+
+  hadoop-worker1:
+    <<: *hadoop-common
+    container_name: hadoop-worker1
+    hostname: hadoop-worker1
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+
+  hadoop-worker2:
+    <<: *hadoop-common
+    container_name: hadoop-worker2
+    hostname: hadoop-worker2
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
+
+  hadoop-worker3:
+    <<: *hadoop-common
+    container_name: hadoop-worker3
+    hostname: hadoop-worker3
+    command: ["sh", "-c", "service ssh start; tail -f /dev/null"]
