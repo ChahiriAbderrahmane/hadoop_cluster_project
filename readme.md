@@ -68,3 +68,12 @@ To reproduce this project:
 * **Start the cluster:** `start-dfs.sh && start-yarn.sh`
 * **Check processes:** `jps`
 * **List HDFS files:** `hdfs dfs -ls /`
+
+## 📨 Contact Me
+
+[LinkedIn](https://www.linkedin.com/in/abderrahmane-chahiri-151b26237/) •
+[Gmail](mailto:chahiri.abderrahmane.eng@gmail.com)
+
+<div align="center">
+Made with ❤️ by <a href="https://www.linkedin.com/in/chahiri-abderrahmane/">Abderrahmane Chahiri</a>
+</div>
